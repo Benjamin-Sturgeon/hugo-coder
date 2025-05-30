@@ -32,8 +32,10 @@
       </header>
 
       <div class="post-content">
-        {{ if .Params.featuredImage }}
-          <img src="{{ .Params.featuredImage | relURL }}" alt="Featured image"/>
+        {{ if .Params.featured_image }}
+          <a href="{{ .Params.externalLink | default .RelPermalink }}">
+            <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" class="post-thumbnail">
+          </a>
         {{ end }}
         {{ .Content }}
       </div>

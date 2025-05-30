@@ -13,7 +13,20 @@
     {{ .Content }}
     <ul>
       {{- range .Paginator.Pages -}}
-        {{- .Render "li" -}}
+        <li>
+          <div class="post-container">
+            {{ if .Params.featured_image }}
+              <a href="{{ .Params.externalLink | default .RelPermalink }}">
+                <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" class="post-thumbnail">
+              </a>
+            {{ end }}
+            <div class="post-details">
+              <span class="date">{{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
+              <span class="title-separator">•</span>
+              <h2 class="post-title"><a href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a></h2>
+            </div>
+          </div>
+        </li>
       {{- end -}}
     </ul>
 

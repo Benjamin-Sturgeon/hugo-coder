@@ -1,5 +1,8 @@
 {{ partial "head/meta-tags.html" . }}
 
+<link rel="icon" href="{{ "favicon.svg" | absURL }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
+
 {{ if .Params.canonicalUrl }}
 <link rel="canonical" href="{{ .Params.canonicalUrl }}">
 {{ else }}
